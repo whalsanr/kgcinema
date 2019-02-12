@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+ textarea{
+  width: 80%;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  font-size: 11px;
+  line-height: 1.4;  
+  letter-spacing: 1px;
+}
+</style>
+<script type="text/javascript">
+function check1() {
+	var str = document.getElementById("temp").value;
+	alert("1");
+	document.getElementById("textarea").value = str.replace(/(?:<br>)/g,'\n');
+	alert("2");
+	//document.getElementById("textarea").value = str.replace(/(?:\r\n|\r|\n)/g,'<br/>');
+	//document.adminform.submit();
+}
+
+function check2() {
+	var str = document.getElementById("textarea").value;
+	document.getElementById("temp").value = str.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+	document.adminform.submit();
+}
+</script>
+</head>
+
+<body>
+
+<form name="adminform" action="test.jsp">
+  <textarea name="textarea" id="textarea" rows="10" cols="10">textarea</textarea>
+  <textarea name="result" id="temp" rows="10" cols="10">result</textarea>
+  <input type="button" value="전송" onclick="check1()">
+</form>
+
+
+
+
+</body>
+</html>
